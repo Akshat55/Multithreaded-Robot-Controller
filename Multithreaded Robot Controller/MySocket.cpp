@@ -122,7 +122,7 @@ bool MySocket::ConnectTCP() {
 }
 
 
-//Disconnects TCP
+//Disconnects TCP - Close socket
 bool MySocket::DisconnectTCP() {
 
 	bool tcpDisconnected = false;
@@ -190,13 +190,13 @@ bool MySocket::SetupUDP() {
 
 
 
-//Terminate UDP
+//Terminate UDP - Close Socket
 bool MySocket::TerminateUDP() {
 	bool isTerminated = false;
-	//ONly terminate if connection Type being used is UDP
+	//Only terminate if connection Type being used is UDP
 	if (connectionType == UDP) {
 
-		//ONly connection Socket uses this
+		//Only connection Socket uses this
 		if (closesocket(ConnectionSocket) != SOCKET_ERROR) {
 			bConnect = false;
 			isTerminated = true;
